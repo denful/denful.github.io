@@ -1,0 +1,26 @@
+---
+title: GoDNet
+description: A Go implementation of Delta Interaction Nets and compiler backend.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[GoDNet](https://github.com/denful/godnet) (Go D-Net) is a Golang implementation of [Delta Interaction Nets](https://arxiv.org/pdf/2505.20314) and compiler backend, built to power [GoDNix](/ecosystem/godnix/).
+</Aside>
+
+## What it does
+
+GoDNet implements Delta Interaction Nets in Go, the reduction engine and compiler backend that executes nets produced by the [GoDNix](/ecosystem/godnix/) Nix compiler. Interaction nets are a graph-rewriting model of computation with strong locality and confluence properties, making them a natural target for parallel, optimal reduction.
+
+## Role in the ecosystem
+
+GoDNet is the reduction engine of the Go interaction-net stack. [GoDNix](/ecosystem/godnix/) compiles Nix down to nets, and GoDNet reduces them. It is part of the same line of research as [dnx](/ecosystem/dnx/)'s Δ-Nets runtime.
+
+## Links
+
+<LinkButton href="https://github.com/denful/godnet" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://arxiv.org/pdf/2505.20314" icon="external" variant="minimal">Delta Interaction Nets paper</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

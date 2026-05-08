@@ -1,0 +1,41 @@
+---
+title: pipe
+description: A composable version of Nix lib.pipe (|>) for any freer monad.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[pipe](https://github.com/denful/pipe) is a tiny library that provides a generic monadic `do` pipe and combinators for Nix. It's a composable replacement for `lib.pipe` (`|>`) that works over any monad.
+</Aside>
+
+## What it does
+
+Calling `pipe` with a list of operations is a `do` pipeline over the `Id` monad. Because `M a = a` for `Id`, all Nix values work without any wrapping:
+
+```nix
+let
+  x = pipe [ (n: n * 2) (n: n + 1) ];
+  y = pipe [ (n: n / 2) (n: n - 1) ];
+  z = pipe [ x y ];   # subpipes are first class
+in z 100
+```
+
+You can also define your own monad instances (the library ships `Id` and `Maybe`). Pipelines can be generic over the monad type and run unchanged on different instances.
+
+## Key features
+
+- **Drop in `lib.pipe`**, composable `|>` with first class subpipes
+- **Freer monad core**, `do` style sequencing over any monad
+- **Bring your own monad**, define `pure` / `bind` / `isM` for custom instances
+- **Monad generic pipelines**, write once, run on `Id`, `Maybe`, or your own
+
+## Role in the ecosystem
+
+pipe is the lightweight functional glue of the ecosystem, monadic composition without ceremony. It pairs naturally with [nfx](/ecosystem/nfx/)'s algebraic effects when you need structured sequencing in plain Nix.
+
+## Links
+
+<LinkButton href="https://github.com/denful/pipe" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

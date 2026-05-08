@@ -1,0 +1,38 @@
+---
+title: nix-versions
+description: Find the nixpkgs revision for any historical version of a package, and a plain-text dev-shell / tool-version manager.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[nix-versions](https://github.com/denful/nix-versions) is a CLI tool that finds the nixpkgs revision for historical versions of a package, and with `nix shell` and `direnv`, doubles as a plain-text dev-shell and tool-version manager.
+</Aside>
+
+## What it does
+
+nix-versions resolves package versions by integrating the services the Nix ecosystem already provides, any of which can be the default or combined per-package:
+
+- **[search.nixos.org](https://search.nixos.org)** (via [nix-search-cli](https://github.com/peterldowns/nix-search-cli)): search packages by program or attribute name wildcards
+- **[nixhub.io](https://nixhub.io)**: default backend for version resolution
+- **[lazamar.co.uk](https://lazamar.co.uk/nix-versions/)**: versions by nixpkgs channel
+- **history.nix-packages**: a community versions index
+
+## Key features
+
+- **Multi backend resolution**: selectable or combined per package
+- **Version constraint filters**: semver hyphen ranges to pin compatible/stable sets
+- **Tool version manager**: with `nix shell` + `direnv`, automatic environment loading for people coming from npm, rvm, asdf, or mise
+- **Flake generator**: the website generates flakes for version pinned packages you can use as inputs
+
+## Role in the ecosystem
+
+nix-versions is the reproducibility on-ramp, version pinning and dev shells that stay friendly to newcomers. It pairs with [ntv](/ecosystem/ntv/) for an interactive tool-versioning workflow.
+
+## Links
+
+<LinkButton href="https://github.com/denful/nix-versions" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://nix-versions.denful.dev" icon="external" variant="minimal">Documentation</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

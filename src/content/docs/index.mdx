@@ -1,0 +1,123 @@
+---
+title: Denful
+description: Composable, context aware Nix tools, and dnx, a new optimal Nix runtime. Built for sharing, made for the community.
+template: splash
+hero:
+  tagline: "Composable, aspect oriented Nix tools, built in the open."
+  image:
+    html: |
+      <img width="400" height="400" style="clip-path: circle()" src="https://avatars.githubusercontent.com/u/277897018?v=4" />
+  actions:
+    - text: Explore the Ecosystem
+      link: /ecosystem/overview/
+      icon: right-arrow
+    - text: Meet the Team
+      link: /sponsor/
+      icon: heart
+      variant: secondary
+    - text: Meet dnx
+      link: /ecosystem/dnx/
+      variant: minimal
+    - text: Why denful exist
+      link: /motivation/
+      variant: minimal
+---
+
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+
+## Composable Nix, built in the open
+
+Denful is a community building composable Nix tools. Aspects, algebraic effects, evaluation, and a new runtime called dnx.
+
+The idea is simple. Nix is powerful, yet its libraries rarely compose. Denful brings them together. Aspect oriented configurations that produce NixOS, Darwin, and Home Manager from a single context. Algebraic effects that make side effects explicit and testable. And dnx, a runtime that aims to be parallel, reproducible, and verifiable. Every tool is small, depends on almost nothing, and works on its own or alongside the rest.
+
+All of it is open source, tested, documented, and used by real people. We build it because Nix deserves libraries that compose, that are easy to share, and that scale with you.
+
+<CardGrid>
+  <Card title="gen" icon="setting">
+    The foundation by sini: pure Nix primitives for algebra, scope graphs, and aspect composition. den builds on gen.
+
+    <LinkButton href="/ecosystem/gen/" variant="minimal" icon="right-arrow">Learn More</LinkButton>
+  </Card>
+  <Card title="den" icon="rocket">
+    Context aware configuration framework. Declarative pipelines, host and user schemas, batteries included. Works with or without flakes.
+
+    <LinkButton href="/ecosystem/den/" variant="minimal" icon="right-arrow">Learn More</LinkButton>
+  </Card>
+  <Card title="flake-aspects" icon="puzzle">
+    Zero dependency aspect composition. Transpose `aspect.class` into standard Nix module layouts. Parametric providers, nestable sub aspects, composable DAGs.
+
+    <LinkButton href="/ecosystem/flake-aspects/" variant="minimal" icon="right-arrow">Learn More</LinkButton>
+  </Card>
+  <Card title="flake-file" icon="document">
+    Generate `flake.nix` from typed Nix modules. Use the real Nix language for your flake inputs. Regenerate with one command.
+
+    <LinkButton href="/ecosystem/flake-file/" variant="minimal" icon="right-arrow">Learn More</LinkButton>
+  </Card>
+  <Card title="import-tree" icon="seti:folder">
+    Recursively import Nix modules from any directory tree. The most widely adopted library for Aspect oriented configs.
+
+    <LinkButton href="/ecosystem/import-tree/" variant="minimal" icon="right-arrow">Learn More</LinkButton>
+  </Card>
+  <Card title="dendrix" icon="star">
+    Community driven distribution of Aspect oriented configurations, like NUR but for composable aspects. Layers, import trees, and templates.
+
+    <LinkButton href="/ecosystem/dendrix/" variant="minimal" icon="right-arrow">Learn More</LinkButton>
+  </Card>
+
+  <Card title="And Much More..." icon="nix">
+    Algebraic effects (nfx, fx-rs, fx.go), FRP (ned, dnzl, zen), interaction nets (dnx, GoDNix), Nix tooling (nix-versions, nest, fastest), and more.
+
+    <LinkButton href="/ecosystem/overview/" variant="minimal" icon="right-arrow">Full Ecosystem</LinkButton>
+  </Card>
+</CardGrid>
+
+
+## And then there is dnx
+
+**[dnx](/ecosystem/dnx/) is a new high performance Nix runtime in development.** Built from the ground up as a single Rust binary, it gives you reproducible builds without root and without a system wide store.
+
+Underneath it runs on **Δ-Nets**, an interaction net engine that reduces work in parallel and reuses anything it has already computed, by its real meaning and not by a filename. One engine for building, for evaluating more than one language, and for checking proofs. It is early, honest research software—an ambitious and unprecedented attempt to rethink the foundations of reproducible computation. dnx is libre and stays libre, built in the open as something good for everyone.
+
+<LinkButton href="/ecosystem/dnx/" icon="right-arrow" variant="secondary">Meet dnx</LinkButton>
+
+
+## Why your support matters
+
+Denful is built by people who care about it. Every library has CI, tests, documentation, and real users, and keeping all of that healthy takes real, dedicated time.
+
+Each engineer has their own GitHub Sponsors page, and they give their work away freely because they care. Supporting the people behind the tools you rely on is what lets them keep doing it. If Denful saves you time, consider funding the person behind the part you depend on.
+
+<LinkButton href="/sponsor/" icon="heart">Meet the team and sponsor</LinkButton>
+
+
+## Used by real people
+
+<CardGrid>
+  <Card title="quasigod.xyz/nixconfig" icon="star">
+    Beautiful code organization with angle brackets syntax and provides, from the author of the [Unify framework](https://codeberg.org/quasigod/unify) which was a huge inspiration for flake-aspects.
+
+    <LinkButton variant="secondary" href="https://tangled.org/quasigod.xyz/nixconfig">Visit</LinkButton>
+  </Card>
+  <Card title="drupol/infra" icon="rocket">
+    Adopted by the author of the well known ["Flipping the Configuration Matrix"](https://not-a-number.io/2025/refactoring-my-infrastructure-as-code-configurations/) blog post.
+
+    <LinkButton variant="secondary" href="https://github.com/drupol/infra/pull/124">Visit</LinkButton>
+  </Card>
+  <Card title="Growing community" icon="heart">
+    People across the Nix ecosystem are discovering Aspect oriented patterns for cleaner, more maintainable configurations.
+
+    <LinkButton variant="secondary" href="https://github.com/search?q=dendritic+language%3ANix&type=repositories&s=updated&o=desc">GitHub Search</LinkButton>
+  </Card>
+  <Card title="vic/vix" icon="laptop">
+    A multi host, multi user NixOS and Darwin infrastructure by vic, and the proving ground for every Aspect oriented feature.
+
+    <LinkButton variant="secondary" href="https://github.com/vic/vix">Visit</LinkButton>
+  </Card>
+</CardGrid>
+
+
+## Star History
+
+[![Star History Chart](https://api.star-history.com/svg?repos=denful/den,denful/flake-aspects,denful/flake-file,denful/import-tree,denful/dendrix,denful/garden,denful/dendritic-unflake,denful/with-inputs,denful/nfx,denful/nix-versions,denful/ned,denful/nest&type=date&legend=top-left)](https://github.com/denful/den)

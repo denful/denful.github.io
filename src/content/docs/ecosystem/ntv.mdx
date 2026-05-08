@@ -1,0 +1,24 @@
+---
+title: ntv
+description: A flakes editor and tool-versioning tool for Nix.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[ntv](https://github.com/denful/ntv) is a flakes editor and tool-versioning tool for Nix.
+</Aside>
+
+## What it does
+
+ntv is an interactive companion for working with Nix flakes: editing flake inputs and outputs and managing tool versions, without hand editing `flake.nix` and `flake.lock`.
+
+## Role in the ecosystem
+
+ntv is the interactive front end to the version-pinning workflow, where [nix-versions](/ecosystem/nix-versions/) resolves and pins versions from the command line, ntv provides a hands-on editor for flakes and tool versions.
+
+## Links
+
+<LinkButton href="https://github.com/denful/ntv" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

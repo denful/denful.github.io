@@ -1,0 +1,32 @@
+---
+title: rust-effects
+description: A freer-monad algebraic effects layer with an MLTT dependent type checker, for stable Rust.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[rust-effects](https://github.com/denful/rust-effects) provides a freer monad effect system with handlers and a Martin-Löf type theory (MLTT) type-checking kernel for stable Rust. It is a Rust port of [nix-effects](https://github.com/kleisli-io/nix-effects).
+</Aside>
+
+## What it does
+
+rust-effects pairs algebraic effects with serious type theory. It provides:
+
+- A **freer monad** effect system built on an **FTCQueue** (Kiselyov & Ishii, 2015) for efficient continuation handling
+- **Dependent types** and **graded linear types**
+- An **MLTT type-checking kernel**
+
+It is a Rust port of the [nix-effects](https://github.com/kleisli-io/nix-effects) kernel; see [docs.kleisli.io](https://docs.kleisli.io/nix-effects) for the underlying theory and general API.
+
+## Role in the ecosystem
+
+rust-effects is the type theoretic end of the effects family. Where [fx-rs](/ecosystem/fx-rs/) offers Kyo-style abilities for everyday Rust, rust-effects ports the dependently typed nix-effects kernel, the same lineage that informs [nfx](/ecosystem/nfx/) in Nix.
+
+## Links
+
+<LinkButton href="https://github.com/denful/rust-effects" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://docs.kleisli.io/nix-effects" icon="external" variant="minimal">Theory (nix-effects)</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

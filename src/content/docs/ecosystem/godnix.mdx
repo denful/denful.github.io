@@ -1,0 +1,32 @@
+---
+title: GoDNix
+description: A Nix compiler into Delta Interaction Nets, targeting the GoDNet reduction engine.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[GoDNix](https://github.com/denful/godnix) (Go D-Nix) is a compiler that translates Nix expressions into Delta Interaction Nets, running them on the [GoDNet](/ecosystem/godnet/) reduction engine.
+</Aside>
+
+## What it does
+
+GoDNix is the front end of a Go-based interaction-net stack: it parses Nix expressions and compiles them into Delta Interaction Nets, which [GoDNet](/ecosystem/godnet/) then reduces.
+
+The first version supports a core fragment of Nix:
+
+- **Integers**, Church-numeral encoding
+- **Anonymous functions**, `x: body` syntax
+- **Function application**, direct application of functions to arguments
+- **Let bindings**, `let x = value; in body`
+- **Addition**, pure Church-numeral addition (`+`)
+
+## Role in the ecosystem
+
+GoDNix pairs with [GoDNet](/ecosystem/godnet/). GoDNix compiles the surface Nix language into interaction nets, and GoDNet performs the optimal reduction. Together they are a research vehicle for evaluating Nix on the same Δ-Nets foundation explored by [dnx](/ecosystem/dnx/).
+
+## Links
+
+<LinkButton href="https://github.com/denful/godnix" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

@@ -1,0 +1,35 @@
+---
+title: bend
+description: Lens-based data parser-combinators, bidirectional transformation and validation pipelines for Nix.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[bend](https://github.com/denful/bend) is a lens based parser combinator library for Nix data. It builds bidirectional transformation and validation pipelines on the principle [*Parse, Don't Validate*](https://lexi-lambda.github.io/blog/2019/11/05/parse-don-t-validate/). The refined data structure is the proof.
+</Aside>
+
+## What it does
+
+bend draws from Haskell profunctor optics, Scala's `Either`, the `adapt` primitive from [nfx](/ecosystem/nfx/), and parser combinators. A validator that returns `true` for a non empty list throws away the proof it just computed. A bend lens instead returns `left empty` or `right { head; tail; }`, so the data structure carries the proof. Every lens either refines data as proof on `right` or surfaces invalid data on `left`.
+
+Its combinator names deliberately match parser combinator vocabulary. bend is a parser combinator library that operates on Nix data structures instead of character streams, and also supports bidirectional writes.
+
+## Key features
+
+- **Parse, Don't Validate**, refinements return proofs, not booleans
+- **Bidirectional lenses**, read *and* write through the same optic
+- **Parser-combinator vocabulary**, familiar combinators over Nix data
+- **Zero dependencies**, and [0ver](https://0ver.org) versioning
+
+## Role in the ecosystem
+
+bend is the data, validation, and optics foundation. It supplies [zen](/ecosystem/zen/)'s module merge (`N → 1`) and type-checking, and complements [nfx](/ecosystem/nfx/)'s algebraic effects with structured, proof-carrying transformations.
+
+## Links
+
+<LinkButton href="https://github.com/denful/bend" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://bend.denful.dev" icon="external" variant="minimal">Documentation</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

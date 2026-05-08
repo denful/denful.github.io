@@ -1,0 +1,24 @@
+---
+title: ranix
+description: A Nix language parser implemented in C with ragel and bison.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[ranix](https://github.com/denful/ranix) is a Nix language parser implemented in C, built with **ragel** (scanner) and **bison** (grammar).
+</Aside>
+
+## What it does
+
+ranix parses the Nix language in C. It uses ragel to generate the lexical scanner and bison to generate the grammar parser, a classic, fast C toolchain for turning Nix source into a syntax tree.
+
+## Role in the ecosystem
+
+ranix sits at the front of the Nix-evaluation exploration. A low-level, portable parser that complements the interaction-net engines ([GoDNet](/ecosystem/godnet/), [GoDNix](/ecosystem/godnix/)) and the [dnx](/ecosystem/dnx/) runtime.
+
+## Links
+
+<LinkButton href="https://github.com/denful/ranix" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

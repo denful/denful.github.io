@@ -1,0 +1,36 @@
+---
+title: dnzl
+description: An actor system for pure Nix, built on Ned stream-cycles.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[dnzl](https://github.com/denful/dnzl) is an actor system for Nix based on [ned](/ecosystem/ned/) stream cycles. Write behaviours as plain functions (with automatic behaviour replacement, state keeping, and error handling) and compose them into pipelines, fan outs, and feedback loops with lazy `let` and stream wiring.
+</Aside>
+
+## What it does
+
+dnzl turns ned's reactive streams into a message passing actor model in pure Nix. Actors are plain functions. Wiring is lazy stream composition.
+
+## What it enables
+
+- **Stateful stream processing**, each actor keeps state across messages through closures; state threads through `scanl`, with no mutable or global state
+- **Behaviour switching**, an actor can replace itself with a new behaviour after each message, so state machines are just functions calling functions
+- **Either routing**, tag replies `right` (success) or `left` (failure). `outbox.right` / `outbox.left` are sub streams of bare values
+- **Lazy pipelines**, wire one actor's outbox as another's inbox; Nix laziness resolves evaluation order
+- **Capability refs**, a `cycle-c` is a Nix value. Returning it as a reply grants the receiver permission to invoke that actor
+- **Fan out and scatter gather**, spawn N actors with `builtins.map`, collect with `merge`, deterministically
+- **Content-based routing**, `when-c` filters a shared stream into per-actor slices
+
+## Role in the ecosystem
+
+dnzl is the concurrency and messaging layer of the streams stack, sitting directly on [ned](/ecosystem/ned/). It demonstrates how far pure-Nix stream composition can be pushed, actors, supervision, and routing without any imperative machinery.
+
+## Links
+
+<LinkButton href="https://github.com/denful/dnzl" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://dnzl.denful.dev" icon="external" variant="minimal">Documentation</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

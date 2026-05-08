@@ -1,0 +1,37 @@
+---
+title: fx-rs
+description: An algebraic effects system for Rust, modeled after Scala's Kyo and Go's fx.go.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[fx-rs](https://github.com/denful/fx-rs) is an algebraic effects system for Rust, modeled after Scala's [Kyo](https://getkyo.io) and Golang's [fx.go](/ecosystem/fx-go/).
+</Aside>
+
+## What it does
+
+fx-rs brings ability-style algebraic effects to stable Rust: typed effects (*abilities*), handlers that interpret them, and lenses for focusing into context, the same effect-handler programming model offered by [fx.go](/ecosystem/fx-go/), expressed in Rust's type system.
+
+```shell
+cargo add fx-rs
+```
+
+## Key features
+
+- **Abilities**, typed algebraic effects
+- **Handlers**, interpret and transform effects
+- **Lenses**, focus into structured context
+- **Functional, stable Rust**, published on [crates.io](https://crates.io/crates/fx-rs)
+
+## Role in the ecosystem
+
+fx-rs is the Rust member of a cross-language algebraic-effects family that includes [nfx](/ecosystem/nfx/) (Nix) and [fx.go](/ecosystem/fx-go/) (Go). For a more type theoretic take on effects in Rust, freer monads with a dependent type checker, see [rust-effects](/ecosystem/rust-effects/).
+
+## Links
+
+<LinkButton href="https://github.com/denful/fx-rs" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://crates.io/crates/fx-rs" icon="external" variant="minimal">crates.io</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

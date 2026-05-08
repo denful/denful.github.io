@@ -1,0 +1,44 @@
+---
+title: zen
+description: A minimal, stream-based Nix module system, a ~100-line kernel, MLTT-verified, far faster than lib.evalModules.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[zen](https://github.com/denful/zen) is a minimal stream based Nix module system. It's a ~100 line kernel built on [bend](/ecosystem/bend/), [nix-effects](https://github.com/kleisli-io/nix-effects), and [ned](/ecosystem/ned/).
+</Aside>
+
+## What it does
+
+zen is a thin kernel resting on three hard dependencies, each owning one job:
+
+| What | How |
+|------|-----|
+| **N → 1** (merge module contributions) | [bend](/ecosystem/bend/) lenses |
+| **Types** (validation + MLTT proofs) | bend + [nix-effects](https://github.com/kleisli-io/nix-effects) |
+| **Fixpoint** (modules read the merged config) | [ned](/ecosystem/ned/) cycles |
+
+Using nix-effects rotation and scoped handlers for submodules, and Ned streams for the config fixed point, the ~100 line kernel unlocks capabilities no other Nix module system has.
+
+## Key features
+
+- **Actor-like inter-module communication**, modules negotiate rather than blindly merge
+- **Negotiated merge & stateful reconciliation**, merge strategies are first-class
+- **MLTT-verified configs**, type-checked module evaluation
+- **Fast**, ~26× faster than `lib.evalModules` on a 10,000-module benchmark
+- **nixpkgs compatibility layer**, output parity with `lib.evalModules` (not a drop-in replacement)
+
+<Aside type="caution" title="Experimental">
+The architecture and minimal kernel are well established and working, but UX is still being developed before zen is ready for everyday use.
+</Aside>
+
+## Role in the ecosystem
+
+zen is the module-system capstone of the streams stack, it composes [bend](/ecosystem/bend/) (merge + types), [ned](/ecosystem/ned/) (fixpoint), and nix-effects (handlers) into a single, verifiable evaluation engine.
+
+## Links
+
+<LinkButton href="https://github.com/denful/zen" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

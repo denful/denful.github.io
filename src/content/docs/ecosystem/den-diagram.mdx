@@ -1,0 +1,43 @@
+---
+title: den-diagram
+description: Diagram library for den, graph IR construction, filtering, and multi-format rendering of aspect-resolution pipelines.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[den-diagram](https://github.com/denful/den-diagram) turns [den](/ecosystem/den/)'s aspect-resolution pipelines into inspectable diagrams, building a format-agnostic graph IR from den's traces and rendering it to mermaid, dot, plantuml, and more.
+</Aside>
+
+## What it does
+
+den-diagram visualizes how [den](/ecosystem/den/) resolves aspects. It consumes the structured trace entries captured while den runs its `fx` pipeline, builds a format agnostic graph intermediate representation, and renders that IR into multiple diagram formats and fleet views.
+
+It is organized as a five-stage pipeline, each stage with a single responsibility:
+
+```mermaid
+graph LR
+  capture["Capture<br/>(in den)"] --> graph["Graph<br/>graph IR"]
+  graph --> filter["Filter<br/>prune / fold / slice / diff"]
+  filter --> render["Render<br/>mermaid · dot · plantuml"]
+  render --> export["Export<br/>.md · .svg"]
+```
+
+## Key features
+
+- **Five-stage pipeline**: Capture (in den) → Graph → Filter → Render → Export, each communicating through well defined data shapes
+- **Format agnostic graph IR**: nodes, edges, and entity kinds with no visual concerns baked in
+- **Pure filter transforms**, prune, fold, slice, and diff the graph IR as plain functions
+- **Multi-format renderers**, emit mermaid, dot, plantuml, and other diagram sources; theming and layout are render-time concerns
+- **Derivation export**, build `.md` and `.svg` outputs via mermaid-cli, graphviz, or plantuml, and assemble galleries
+- **Minimal impurity**, only the export stage touches `pkgs`; every other stage is a pure function over plain attrsets
+
+## Role in the ecosystem
+
+den-diagram is [den](/ecosystem/den/)'s visualization companion. The capture stage lives in den because it drives the `fx` pipeline; everything downstream is den-diagram, making the otherwise-invisible aspect-resolution process auditable for debugging, documentation, and fleet overviews.
+
+## Links
+
+<LinkButton href="https://github.com/denful/den-diagram" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

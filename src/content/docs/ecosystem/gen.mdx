@@ -1,0 +1,67 @@
+---
+title: gen — the foundations
+description: The gen libraries by sini, the pure Nix primitives that den is built on.
+---
+
+import { Card, CardGrid, LinkButton } from '@astrojs/starlight/components';
+
+**[gen](https://github.com/sini/gen)** is a family of small, pure Nix libraries by [sini](https://github.com/sini). They are the foundation that [den](/ecosystem/den/) is built on: the algebra, the scope handling, and the aspect composition primitives that make context driven, aspect oriented configuration possible.
+
+Each library is focused and depends on almost nothing, so you can use one on its own or compose several together. The umbrella project, [gen](https://github.com/sini/gen), gathers unified documentation for the whole family.
+
+## The libraries
+
+<CardGrid>
+  <Card title="gen-algebra" icon="puzzle">
+    Pure Nix primitives: a search monad, intensional functions, record algebra, and validators.
+
+    <LinkButton href="https://github.com/sini/gen-algebra" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-aspects" icon="puzzle">
+    Aspect oriented composition types for Nix module systems. The composition core that den relies on.
+
+    <LinkButton href="https://github.com/sini/gen-aspects" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-scope" icon="seti:folder">
+    Demand driven attribute grammar evaluator over algebraic scope graphs.
+
+    <LinkButton href="https://github.com/sini/gen-scope" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-graph" icon="seti:folder">
+    Monotonic query combinators over scope graphs (Arntzenius 2016).
+
+    <LinkButton href="https://github.com/sini/gen-graph" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-select" icon="seti:folder">
+    Selector algebra for attributed graph positions.
+
+    <LinkButton href="https://github.com/sini/gen-select" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-derive" icon="setting">
+    Stratified rule dispatch with fixpoint convergence.
+
+    <LinkButton href="https://github.com/sini/gen-derive" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-bind" icon="setting">
+    Module binding with external arguments for Nix.
+
+    <LinkButton href="https://github.com/sini/gen-bind" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-vars" icon="setting">
+    Scope driven, multi target variable generation.
+
+    <LinkButton href="https://github.com/sini/gen-vars" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="gen-schema" icon="document">
+    Part of the gen family. See the repository for details.
+
+    <LinkButton href="https://github.com/sini/gen-schema" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+  <Card title="genx" icon="nix">
+    Zero dependency extended Nix primitives: lists, strings, math, encoding, and more.
+
+    <LinkButton href="https://github.com/sini/genx" variant="minimal" icon="external">Source</LinkButton>
+  </Card>
+</CardGrid>
+
+<LinkButton href="https://github.com/sini/gen" icon="external" variant="secondary">gen on GitHub</LinkButton>

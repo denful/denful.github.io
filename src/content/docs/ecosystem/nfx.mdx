@@ -1,0 +1,37 @@
+---
+title: nfx
+description: An algebraic effects system with handlers for Nix, built from four kernel primitives.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[nfx](https://github.com/denful/nfx) is an algebraic effects system with handlers for Nix. Its entire surface, map, flatMap, state, errors, streams, even logic programming, derives from a ~30-line kernel of just four primitives.
+</Aside>
+
+## What it does
+
+nfx brings structured algebraic effects to the Nix language. The kernel provides four primitives:
+
+1. **immediate**, an effect with a resolved value
+2. **pending**, an effect awaiting context
+3. **adapt**, transform context and continuation
+4. **runFx**, evaluate an effect once its requirements are satisfied
+
+Everything else is derived from these.
+
+## Key features
+
+- **Core system**, `kernel`, `basic` (pure/value lifting), `functor` (map/contraMap), `monad` (mapM/flatMap/then'), `provide` (dependency injection), `sequence` (do-notation)
+- **Context management**, `state` threading, `context`, `request` capabilities, `handlers`, `lens`, `pair`, `and`, `zip`
+- **Specialized effects**, `conditions` (Common Lisp style resumable signals, handlers, restarts), `result`, `bracket` (guaranteed cleanup), `rw` (reader/writer), `acc` (accumulators), `choice` (non-deterministic backtracking), `arrow`
+
+## Role in the ecosystem
+
+nfx is the algebraic-effects foundation for Nix. It underpins higher-level functional libraries in the ecosystem, composing naturally with [pipe](/ecosystem/pipe/)'s freer monad pipelines and powering stream and reactivity-oriented work like [ned](/ecosystem/ned/) and [zen](/ecosystem/zen/). It is the Nix member of a cross-language effects family alongside [fx.go](/ecosystem/fx-go/) and [fx-rs](/ecosystem/fx-rs/).
+
+## Links
+
+<LinkButton href="https://github.com/denful/nfx" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

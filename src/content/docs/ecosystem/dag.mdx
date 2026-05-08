@@ -1,0 +1,33 @@
+---
+title: dag
+description: A lightweight, zero-dependency implementation of Home Manager's DAG helpers for Nix.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[dag](https://github.com/denful/dag) is a lightweight implementation of [Home Manager](https://home-manager.dev)'s directed acyclic graph (DAG) helpers. A familiar paradigm for ordering structured information spread across a large flake.
+
+> Dag idea was created by [@theutz](https://github.com/theutz), go visit them.
+
+</Aside>
+
+## What it does
+
+Home Manager's DAG helpers let you express ordered, structured data ("this entry comes after that one") without brittle list indices. dag brings that same paradigm to any Nix project. Particularly useful alongside [flake.parts](https://flake.parts), the aspect oriented pattern, and the aspect oriented approach of [den](/ecosystem/den/).
+
+## Key features
+
+- **Zero dependencies**: borrows `lib` from your own `nixpkgs`
+- **Home Manager compatible**: the familiar DAG paradigm, standalone
+- **Composes with flake-parts & Den**: drop the library into your top level attrset
+
+## Role in the ecosystem
+
+dag is a small structuring primitive: ordered, mergeable data for configurations that grow large and spread out, exactly the shape of Aspect oriented and flake-parts setups.
+
+## Links
+
+<LinkButton href="https://github.com/denful/dag" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

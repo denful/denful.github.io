@@ -1,0 +1,46 @@
+---
+title: dnx
+description: Libre, rootless Nix on an optimal reduction (Δ-Nets) runtime. Reproducible builds and verifiable computation from a single Rust binary.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[dnx](https://github.com/denful/dnx) (δ-nx) is a single Rust binary that delivers reproducible packages and builds **without root and without a system wide store**, on a runtime built from **Δ-Nets**, an interaction net model that performs optimal λ reduction with perfect confluence.
+</Aside>
+
+**dnx is vic's most recent project, and the one vic needs most your support to reach to its full potential.**
+
+## What it does
+
+dnx is a rootless package manager with an unusual core. Above the line it gives you reproducible packages, builds, and derivations using its own content addressed store. No privileged daemon, no `/nix`, no root. Below the line is a runtime based on **Δ-Nets**, the same engine that builds your packages also evaluates more than one surface language, caches work by its computed *meaning*, and machine checks mathematical proofs.
+
+The bet behind dnx is that package managers, language runtimes, and proof assistants are secretly the *same* problem, deterministic evaluation of content addressed expressions, and that one mathematically grounded substrate can serve all three.
+
+## Key features
+
+- **Rootless, single binary**, reproducible builds with no system service and no `/nix`
+- **Content addressed userland store**, packages realized into a per user store
+- **Δ-Nets runtime**, optimal λ reduction with perfect confluence
+- **Parallel by default**, evaluation uses all available cores
+- **Cache by meaning**, identical work is recognized and reused across runs and machines
+- **One CLI, many subcommands**, `eval`, `py`, `test`, `build`, `flake`, `store`, `daemon`
+- **A commons**, libre and AGPL3, developed in the open as public infrastructure
+
+<Aside type="caution" title="Early research software">
+dnx has its **own** semantics, it is **not** a drop in for existing package managers. General recursion, long the central open problem for this style of engine, now evaluates natively, which was a big milestone. Still, this is early, fast moving research software with honest edges. The properties are proven on the model, and the full vision is still being built. Everything documented as working has been run firsthand.
+</Aside>
+
+## Why this matters
+
+Denful wants a Nix that is fast, parallel, reproducible, and verifiable, built on solid mathematical ground and free for everyone. dnx is that attempt. It is years of research turning into real software, and it is vic's most ambitious work to date. It is also the work that most needs focused, uninterrupted time, which is exactly what your sponsorship makes possible.
+
+## Role in the ecosystem
+
+dnx is the runtime frontier of the ecosystem, where Nix evaluation and builds meet interaction net reduction. It shares the Δ-Nets substrate explored by [GoDNet](/ecosystem/godnet/) and [GoDNix](/ecosystem/godnix/), pushing toward a single engine for building, evaluating, and verifying.
+
+## Links
+
+<LinkButton href="https://github.com/denful/dnx" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="secondary">Help build dnx full time</LinkButton>

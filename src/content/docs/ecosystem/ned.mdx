@@ -1,0 +1,35 @@
+---
+title: ned
+description: Functional Reactive Programming for Nix, a minimal, stream-based kernel inspired by Cycle.js.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[ned](https://github.com/denful/ned) is a minimal kernel that brings [stream-based](https://cycle.js.org/streams.html) functional-reactive programming to Nix. Inspired by Cycle.js and Haskell 1.0 Dialogue, it is designed to be [den](/ecosystem/den/)'s stream based core.
+</Aside>
+
+## What it does
+
+ned's core tenet is **everything is a stream**. Built on [nix-effects](https://github.com/kleisli-io/nix-effects) (using effect rotation, scoped handlers, and function parameters as effects for dependency injection), ned's primitives are effectful streams. Concerns that a configuration framework usually hard-codes (topology transitions, class forwards, deduplication) become ordinary stream composition and transformation.
+
+## Core concepts
+
+- **Stream** (`ST a`), a lazy, pull based effectful sequence of items, with a fluent API for composition. By convention a `user-s` name means "a user stream"
+- **Driver** (`request-s -> response-s`), a stream transformation responsible for performing side effects, named after Cycle.js drivers
+
+## Key features
+
+- **Minimal, complete kernel**, feature-minimal by design; the kernel is already complete
+- **Not NixOS-specific**, usable for anything you use Nix for, not just configurations
+- **0ver**, zero-based versioning ([0ver](https://0ver.org/))
+
+## Role in the ecosystem
+
+ned is the reactive substrate of the ecosystem. [den](/ecosystem/den/) uses it as its stream-based core, [dnzl](/ecosystem/dnzl/) builds an actor system on its stream-cycles, and [zen](/ecosystem/zen/) uses ned cycles for the module fixpoint.
+
+## Links
+
+<LinkButton href="https://github.com/denful/ned" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

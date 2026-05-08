@@ -1,0 +1,32 @@
+---
+title: nest
+description: A declarative framework for multi-node NixOS infrastructure, using a CSS mental model.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[nest](https://github.com/denful/nest) is a declarative framework for multi-node NixOS infrastructure. It applies the CSS mental model to system configuration: nodes are entities in a DOM tree, traits are classes, and rules map selectors to configuration.
+</Aside>
+
+## What it does
+
+nest models your fleet as a DOM and resolves configuration the way a browser resolves styles.
+
+- **Infrastructure as a DOM**: your fleet is an attrset hierarchy (environments, roles, regions); parents propagate scalar attributes to children, so `system` or `env` is set once and inherited
+- **Traits over repetition**: traits classify nodes and form dependency DAGs. `needs` pulls in dependencies (a `server` trait can pull `nginx`, `ssh`, `firewall`), and `neededBy` injects in reverse
+- **Rules over inheritance**: rules match nodes by selector and contribute NixOS (or other aspect oriented) module fragments. nest hands the collected list to `nixosSystem`, so `lib.mkForce`, `lib.mkDefault`, type checking, and conflict detection all work as usual
+- **CSS selectors for targeting**: match by trait, name, attribute, DOM ancestry, predicate, or boolean combination, with string syntax like `#lb-prod`, `.nixos`, `[env=prod]`, `prod > web`
+- **Synthesis for derived data**: compute derived node attributes and inject virtual children that participate in rule matching like any other node
+
+## Role in the ecosystem
+
+nest is the fleet and infrastructure layer. Because its rules emit ordinary NixOS / Aspect oriented module fragments, it composes with the rest of the ecosystem, a CSS-flavored way to target and assemble configuration across many machines.
+
+## Links
+
+<LinkButton href="https://github.com/denful/nest" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="https://nest.denful.dev" icon="external" variant="minimal">Documentation</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>

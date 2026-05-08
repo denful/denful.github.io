@@ -1,0 +1,32 @@
+---
+import DefaultFooter from '@astrojs/starlight/components/Footer.astro';
+import FooterLinks from './FooterLinks.astro';
+---
+
+<footer>
+	<div class="footer-content">
+		<p>&copy; Denful</p>
+	</div>
+	<FooterLinks />
+</footer>
+
+<style>
+	footer {
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		gap: 1rem;
+		padding: 2rem 1rem;
+		border-top: 1px solid var(--sl-color-gray-5);
+	}
+
+	.footer-content {
+		font-size: var(--sl-text-sm);
+		color: var(--sl-color-gray-3);
+	}
+
+	.footer-content p {
+		margin: 0;
+	}
+</style>
+

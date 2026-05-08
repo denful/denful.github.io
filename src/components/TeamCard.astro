@@ -1,0 +1,29 @@
+---
+interface Props {
+  avatarUrl: string;
+  name: string;
+  username: string;
+}
+
+const { avatarUrl, name, username } = Astro.props;
+---
+
+<div style="text-align: center;">
+  <a href={`https://github.com/sponsors/${username}`} target="_blank" style="display: inline-block; margin-bottom: 1rem;">
+    <img
+      src={avatarUrl}
+      alt={name}
+      style="width: 150px; height: 150px; border-radius: 50%; display: block;"
+    />
+  </a>
+  <div style="font-size: 1.125rem; font-weight: 600; margin-bottom: 0.75rem;">
+    {name}
+  </div>
+  <a
+    href={`https://github.com/sponsors/${username}`}
+    target="_blank"
+    style="color: var(--sl-color-accent-high); text-decoration: none; font-size: 0.95rem;"
+  >
+    github.com/sponsors/{username} →
+  </a>
+</div>

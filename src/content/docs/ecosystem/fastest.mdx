@@ -1,0 +1,34 @@
+---
+title: fastest
+description: A fast, parallel nix-unit-compatible test runner, extracted from Den.
+---
+
+import { LinkButton, Aside } from '@astrojs/starlight/components';
+
+<Aside type="tip">
+[fastest](https://github.com/denful/fastest) is a fast test runner that does ~90% of `nix-unit`. Originally created for [den](/ecosystem/den/) as `ci-fast.bash` by [@sini](https://github.com/sini), it uses `nix-eval-jobs` for parallel, nix unit style test execution.
+</Aside>
+
+## What it does
+
+Many Den integration tests use real NixOS evaluations, so fastest trades a few `nix-unit` features (no error diff, no expect throws) for raw speed via `nix-eval-jobs`. It works for both Nix flakes and non flake `.nix` files, and falls back to `nix-unit` for traces when a single test is specified.
+
+## Key features
+
+- **Parallel execution**, `nix-eval-jobs` runs tests across multiple workers
+- **Flake mode**, `--flake <path or path#tests>`
+- **File mode**, `--file <path> -A <attr>`
+- **Optional suite**, run everything, or a named subset
+- **Individual test traces**, falls back to `nix-unit` for debugging (`--nix-unit`)
+- **Auto-detected system**, overridable with `-s`
+- **Configurable parallelism**, 8 workers / 2 GB each by default; `-P` for all cores
+
+## Role in the ecosystem
+
+fastest is the speed-focused testing tool of the ecosystem, a parallel companion to [checkmate](/ecosystem/checkmate/)'s `nix-unit` integration, born from Den's own CI needs.
+
+## Links
+
+<LinkButton href="https://github.com/denful/fastest" icon="github" variant="secondary">Source Code</LinkButton>
+
+<LinkButton href="/sponsor/" icon="heart" variant="minimal">Support this project</LinkButton>
